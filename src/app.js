@@ -47,7 +47,7 @@ const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const auth = getAuth(app);
 // --------------todo form-------------------
-
+let array=[]
 let form = document.querySelector('.todo');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -66,10 +66,8 @@ form.addEventListener('submit', async (e) => {
     let todos = docSnap.data();
     console.log(typeof todos);
 
-    let array = JSON.parse(localStorage.getItem('details')) ?? [];
-    array.push(todos.todo);
-    localStorage.setItem('details', JSON.stringify(array));
-
+   array.push(todos.todo);
+    console.log(array);
     let main = document.querySelector('.main');
 
     let finalData = '';
